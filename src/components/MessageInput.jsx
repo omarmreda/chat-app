@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { LuSendHorizontal } from "react-icons/lu";
+import { FaRegImage } from "react-icons/fa";
 
 export default function MessageInput({ onSendMessage }) {
   const [message, setMessage] = useState('')
@@ -13,31 +15,48 @@ export default function MessageInput({ onSendMessage }) {
     console.log(message)
   }
 
+  const handleImageUpload = () => {
+    const input = document.createElement('input')
+    input.type = 'file'
+    input.accept = 'image/*'
+    input.onchange = () => {
+      const file = input.files[0]
+      console.log(file)
+    }
+    input.click()
+  }
+
   return (
     <motion.form
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
       onSubmit={handleSubmit}
-      className="mt-auto mb-10"
+      className=""
     >
       <div className="flex">
         <input
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="flex-grow p-2 focus:outline-none bg-transparent text-white border-gray-600 border-b"
+          className="flex-grow p-2 focus:outline-none bg-transparent text-white border-gray-600 border-b max-w-[calc(100%-3rem)]"
           placeholder="Type a message..."
           aria-label="Type a message"
         />
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          type="submit"
-          className="bg-transparent text-white p-2 rounded-r-lg hover:bg-blue-600 transition duration-200"
+        <button
+          type="button"
+          className="bg-transparent text-white p-2 rounded-r-lg transition duration-200"
+          onClick={handleImageUpload}
         >
-          Send
-        </motion.button>
+          <FaRegImage className="w-4 h-4" />
+        </button>
+        <button
+ 
+          type="submit"
+          className="bg-transparent text-white p-2 rounded-r-lg transition duration-200"
+        >
+          <LuSendHorizontal className="w-4 h-4" />
+        </button>
       </div>
     </motion.form>
   )
