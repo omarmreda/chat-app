@@ -7,12 +7,7 @@ export default function MessageInput({ onSendMessage }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (message.trim()) {
-      onSendMessage({
-        id: Date.now().toString(),
-        sender: 'User',
-        content: message,
-        type: 'text',
-      })
+      onSendMessage(message)
       setMessage('')
     }
     console.log(message)

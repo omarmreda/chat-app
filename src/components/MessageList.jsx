@@ -10,7 +10,7 @@ export default function MessageList() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="bg-[#333] rounded-lg shadow-md p-4 h-[60vh] overflow-y-auto"
+      className="bg-[#333] rounded-lg shadow-md p-4 h-[60vh] overflow-y-auto text-white"
     >
       <AnimatePresence>
         {messages.map((message) => (
@@ -19,16 +19,14 @@ export default function MessageList() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="mb-4"
+            className="mb-4 !text-white"
           >
-            {message.sender === 'User' && (
-              <div className="flex items-center mb-1">
-                <User className="w-4 h-4 mr-2" />
-                <span className="font-bold">You</span>
+              <div className="flex items-center mb-1 !text-white">
+                <User className="w-4 h-4 mr-2 !text-white" />
+                <span className="font-bold !text-white">You</span>
               </div>
-            )}
-            <div className="font-bold">{message.sender}</div>
-            {message.type === 'text' && <p>{message.content}</p>}
+     
+            <p className="!text-white">{message.content}</p>
           </motion.div>
         ))}
       </AnimatePresence>

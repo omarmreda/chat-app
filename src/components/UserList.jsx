@@ -9,6 +9,13 @@ export default function UserList({ onSelectUser }) {
   const [newUserName, setNewUserName] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newUserImg, setNewUserImg] = useState("");
+  const [selectedUser, setSelectedUser] = useState(null);
+  
+  const handleSelectUser = (user) => {
+    setSelectedUser(user);
+    onSelectUser(user);
+  };
+
   const handleAddUser = () => {
     if (newUserName.trim()) {
       addUser({
@@ -20,6 +27,7 @@ export default function UserList({ onSelectUser }) {
     }
     setIsModalOpen(false);
   };
+
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
@@ -66,10 +74,10 @@ export default function UserList({ onSelectUser }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="flex items-center mb-4 cursor-pointer text-white"
-              onClick={() => onSelectUser(user)}
+              className={`flex items-center cursor-pointer text-white hover:bg-gray-800 rounded-md p-2 ${selectedUser === user ? 'bg-gray-600' : ''}`}
+              onClick={() => handleSelectUser(user)}
             >
-              <div className="w-12 h-12 mr-2 bg-cover bg-center rounded-full">
+              <div className="w-10 h-10 mr-2 bg-cover bg-center rounded-full">
                 <img
                   src={user.img}
                   alt={user.name}

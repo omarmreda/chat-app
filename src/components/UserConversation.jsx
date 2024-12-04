@@ -34,7 +34,7 @@ export default function UserConversation({ selectedUser }) {
         <h2 className="text-xl font-bold text-white">{selectedUser.name}</h2>
       </div>
       <div className="overflow-y-auto h-full flex flex-col">
-        <ul>
+        <ul className="!text-white">
           {userMessages.map((message) => (
             <li key={message.id} className="mb-2">
               {message.content} 
