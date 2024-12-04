@@ -53,6 +53,7 @@ export default function UserList({ onSelectUser }) {
         <button
           className="bg-transparent text-white font-bold text-xl rounded"
           onClick={handleOpenModal}
+          title="Add User"
         >
           +
         </button>

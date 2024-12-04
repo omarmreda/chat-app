@@ -37,7 +37,7 @@ export default function UserConversation({ selectedUser }) {
         <ul>
           {userMessages.map((message) => (
             <li key={message.id} className="mb-2">
-              {message.content} {/* Ensure this is a string */}
+              {message.content} 
             </li>
           ))}
         </ul>

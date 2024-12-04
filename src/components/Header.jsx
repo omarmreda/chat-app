@@ -1,10 +1,10 @@
 import React from 'react'
 import { Sun, Moon } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 
-
-export default function Header({ isDarkMode, setIsDarkMode }) {
+export default function Header() {
   return (
     <header className="bg-[#1b1b1b] border-b border-gray-600 shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center ">
@@ -16,15 +16,12 @@ export default function Header({ isDarkMode, setIsDarkMode }) {
         >
           <img src="https://corporatica.com/_next/static/media/Logo.f6bc9642.svg" alt="Corporatica Chat" />
         </motion.h1>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setIsDarkMode(!isDarkMode)}
+        <Link
+          to="/account"
           className="p-2 rounded-md font-bold text-white hover:underline bg-transparent dark:bg-gray-700"
-          aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
         >
-        Logout
-        </motion.button>
+          Account
+        </Link>
       </div>
     </header>
   )

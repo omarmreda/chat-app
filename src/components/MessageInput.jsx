@@ -2,19 +2,20 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
 export default function MessageInput({ onSendMessage }) {
-  const [input, setInput] = useState('')
+  const [message, setMessage] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (input.trim()) {
+    if (message.trim()) {
       onSendMessage({
         id: Date.now().toString(),
         sender: 'User',
-        content: input,
+        content: message,
         type: 'text',
       })
-      setInput('')
+      setMessage('')
     }
+    console.log(message)
   }
 
   return (
@@ -28,8 +29,8 @@ export default function MessageInput({ onSendMessage }) {
       <div className="flex">
         <input
           type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className="flex-grow p-2 focus:outline-none bg-transparent text-white border-gray-600 border-b"
           placeholder="Type a message..."
           aria-label="Type a message"
