@@ -9,7 +9,7 @@ function ChatApp() {
   };
 
   return (
-    <div className="chat-window p-4 bg-gray-100 rounded-lg shadow-md">
+    <div className="chat-window p-4 bg-[#333] rounded-lg shadow-md">
       <div className="messages mb-4">
         {messages.map((message, index) => (
           <div key={index} className="message p-2 bg-white rounded mb-2 shadow">

@@ -15,7 +15,7 @@ function App() {
       transition={{ duration: 0.5 }}
       className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}
     >
-      <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
+      <div className="bg-[#1b1b1b] dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
         <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <main className="container mx-auto p-4">
           <ChatInterface />

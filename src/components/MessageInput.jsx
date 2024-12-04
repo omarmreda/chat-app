@@ -1,16 +1,13 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useChat } from '../context/ChatContext'
 
-export default function MessageInput() {
+export default function MessageInput({ onSendMessage }) {
   const [input, setInput] = useState('')
-  const { addMessage } = useChat()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (input.trim()) {
-      addMessage({
+      onSendMessage({
         id: Date.now().toString(),
         sender: 'User',
         content: input,
@@ -26,14 +23,14 @@ export default function MessageInput() {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
       onSubmit={handleSubmit}
-      className="mt-4"
+      className="mt-auto mb-10"
     >
       <div className="flex">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-grow p-2 border rounded-l-lg focus:outline-none"
           placeholder="Type a message..."
           aria-label="Type a message"
         />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useChat } from '../context/ChatContext'
-import DataVisualization from './DataVisualization'
+import { User } from 'lucide-react'
 
 export default function MessageList() {
   const { messages } = useChat()
@@ -10,7 +10,7 @@ export default function MessageList() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 h-[60vh] overflow-y-auto"
+      className="bg-[#333] rounded-lg shadow-md p-4 h-[60vh] overflow-y-auto"
     >
       <AnimatePresence>
         {messages.map((message) => (
@@ -21,11 +21,14 @@ export default function MessageList() {
             exit={{ opacity: 0, y: -20 }}
             className="mb-4"
           >
+            {message.sender === 'User' && (
+              <div className="flex items-center mb-1">
+                <User className="w-4 h-4 mr-2" />
+                <span className="font-bold">You</span>
+              </div>
+            )}
             <div className="font-bold">{message.sender}</div>
             {message.type === 'text' && <p>{message.content}</p>}
-            {message.type !== 'text' && (
-              <DataVisualization type={message.type} data={message.data} />
-            )}
           </motion.div>
         ))}
       </AnimatePresence>
