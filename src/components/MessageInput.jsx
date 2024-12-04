@@ -30,7 +30,7 @@ export default function MessageInput({ onSendMessage }) {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="flex-grow p-2 border rounded-l-lg focus:outline-none"
+          className="flex-grow p-2 focus:outline-none bg-transparent text-white border-gray-600 border-b"
           placeholder="Type a message..."
           aria-label="Type a message"
         />
@@ -38,7 +38,7 @@ export default function MessageInput({ onSendMessage }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           type="submit"
-          className="bg-blue-500 text-white p-2 rounded-r-lg hover:bg-blue-600 transition duration-200"
+          className="bg-transparent text-white p-2 rounded-r-lg hover:bg-blue-600 transition duration-200"
         >
           Send
         </motion.button>

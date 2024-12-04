@@ -17,6 +17,7 @@ export default function UserConversation({ selectedUser }) {
       content,
       type: 'text',
     })
+    console.log(messages)
   }
 
   return (
@@ -26,12 +27,17 @@ export default function UserConversation({ selectedUser }) {
       transition={{ duration: 0.5 }}
       className="bg-[#1b1b1b] border border-gray-600 rounded-lg shadow-md p-4 h-full"
     >
-      <h2 className="text-xl font-bold mb-4 text-white">{selectedUser.name}'s Conversation</h2>
+      <div className="flex items-center gap-2 border-b border-gray-600 pb-2">
+        <div className="w-12 h-12 mr-2 bg-cover bg-center rounded-full">
+          <img src={selectedUser.img} alt={selectedUser.name} className="w-full h-full object-cover rounded-full" />
+        </div>
+        <h2 className="text-xl font-bold text-white">{selectedUser.name}</h2>
+      </div>
       <div className="overflow-y-auto h-full flex flex-col">
         <ul>
           {userMessages.map((message) => (
             <li key={message.id} className="mb-2">
-              {message.content}
+              {message.content} {/* Ensure this is a string */}
             </li>
           ))}
         </ul>
@@ -39,4 +45,4 @@ export default function UserConversation({ selectedUser }) {
       </div>
     </motion.div>
   )
-} 
+}

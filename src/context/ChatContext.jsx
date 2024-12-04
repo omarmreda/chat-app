@@ -4,7 +4,11 @@ const ChatContext = createContext(undefined)
 
 export const ChatProvider= ({ children }) => {
   const [messages, setMessages] = useState([])
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([
+    { id: 1, name: 'Ahmed', img: `/ahmed.jpg` },
+    { id: 2, name: 'Mohamed', img: `/mohamed.jpg` },
+    { id: 3, name: 'Nada', img: `/nada.jpg` },
+  ])
 
   const addMessage = (message) => {
     setMessages((prevMessages) => [...prevMessages, message])

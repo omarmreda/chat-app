@@ -19,8 +19,9 @@ export default function ChatInterface() {
         {selectedUser ? (
           <UserConversation selectedUser={selectedUser} />
         ) : (
-          <div className="text-center text-white flex items-center justify-center rounded-lg border border-gray-600 h-full">
-            Select a user to start a conversation
+          <div className="text-center text-white flex flex-col items-center justify-center rounded-lg border border-gray-600 h-full">
+            <img src={`${process.env.PUBLIC_URL}/chat-icon.png`} alt="Description" className="w-1/4" />
+            <p className="text-lg font-bold">Select a user to start a conversation</p>
           </div>
         )}
       </div>
