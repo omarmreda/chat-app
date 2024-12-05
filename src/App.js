@@ -14,22 +14,15 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className={`min-h-screen`}
+          className='max-h-screen'
         >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className={`min-h-screen`}
-          >
               <Header />
-              <div className="bg-[#1b1b1b] mt-5 text-gray-900 dark:text-gray-100 min-h-screen">
+              <div className="bg-[#1b1b1b] mt-4 text-gray-900 dark:text-gray-100">
               <Routes>
-                <Route path="/" element={<ChatInterface />} />
-                <Route path="/account" element={<Account />} />
-              </Routes>
-            </div>
-          </motion.div>
+            <Route path="/" element={<ChatInterface />} />
+            <Route path="/account" element={<Account />} />
+          </Routes>
+        </div>
         </motion.div>
       </Router>
     </ChatProvider>

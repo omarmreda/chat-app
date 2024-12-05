@@ -54,7 +54,7 @@ export default function UserList({ onSelectUser }) {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-[#1b1b1b] border border-gray-600 rounded-lg shadow-md p-4 h-[85vh]"
+      className="bg-[#1b1b1b] border border-gray-600 rounded-lg shadow-md p-4 h-[80vh]"
     >
       <div className="flex items-center mb-4 justify-between">
         <h2 className="text-xl font-bold text-white">Users</h2>

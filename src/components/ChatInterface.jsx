@@ -13,7 +13,7 @@ export default function ChatInterface() {
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="grid grid-cols-1 h-[85vh] md:grid-cols-4 gap-4 mx-4 bg-[#1b1b1b]"
+      className="grid grid-cols-1 h-[80vh] md:grid-cols-4 gap-4 mx-4 bg-[#1b1b1b]"
     >
       <div className="md:col-span-3 h-full bg-[#1b1b1b]">
         {selectedUser ? (

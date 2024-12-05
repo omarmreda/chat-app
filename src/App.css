@@ -5,3 +5,22 @@ body {
 * {
   color: #fff;
 }
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1b1b1b; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Thumb color */
+  border-radius: 10px;
+  border: 2px solid #1b1b1b; /* Padding around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Thumb hover color */
+}
