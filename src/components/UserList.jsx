@@ -127,7 +127,7 @@ export default function UserList({ onSelectUser }) {
             onChange={(e) => setNewUserName(e.target.value)}
           />
           </div>
-          <div className="flex justify-end gap-4 mt-4">
+          <div className="flex justify-end gap-4 mt-4 flex-col lg:flex-row">
             <button
               className="bg-transparent px-2 py-1 bg-red-600 text-white text-lg rounded"
               onClick={closeModal}
