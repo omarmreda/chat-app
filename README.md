@@ -37,7 +37,7 @@ Welcome to the Chat Application! This application allows users to communicate th
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/chat-application.git
+   [git clone https://github.com/yourusername/chat-application.git](https://github.com/omarmreda/chat-app.git)
    ```
 2. Navigate to the project directory:
    ```bash
