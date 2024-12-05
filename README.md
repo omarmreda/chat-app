@@ -26,6 +26,7 @@ Welcome to the Chat Application! This application allows users to communicate th
 ### Real-Time Updates
 - **Automatic Scrolling**: The chat window automatically scrolls to the latest message, ensuring users are always viewing the most recent conversation.
 - **Responsive Design**: The application is designed to be responsive, providing a consistent experience across different devices and screen sizes.
+  <br />
 ![Responsive Design](public/image4.png)  
 
 ## Getting Started
