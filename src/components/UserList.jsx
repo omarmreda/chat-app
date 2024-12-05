@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { User } from "lucide-react";
 import { useChat } from "../context/ChatContext";
 import Modal from "react-modal";
+import { FaRegImage } from "react-icons/fa";
 
 export default function UserList({ onSelectUser }) {
   const { users, addUser } = useChat();
@@ -16,6 +17,16 @@ export default function UserList({ onSelectUser }) {
     onSelectUser(user);
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files && e.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setNewUserImg(reader.result)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
   const handleAddUser = () => {
     if (newUserName.trim()) {
       addUser({
@@ -96,6 +107,18 @@ export default function UserList({ onSelectUser }) {
           contentLabel="Example Modal"
         >
           <h2 className="text-2xl font-semibold mb-4 text-white">Add User</h2>
+          <div className="flex items-center gap-4 flex-col">
+            <label htmlFor="image-upload2" className="p-2 text-white cursor-pointer flex flex-col items-center">
+                <img src={newUserImg || "https://via.placeholder.com/150"} alt="User" className="w-20 h-20 rounded-full" />
+                <span className="text-white">Choose Image</span>
+            </label>
+            <input
+            id="image-upload2"
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="hidden"
+          />
           <input
             type="text"
             placeholder="Enter user name"
@@ -103,24 +126,10 @@ export default function UserList({ onSelectUser }) {
             value={newUserName}
             onChange={(e) => setNewUserName(e.target.value)}
           />
-          <input
-            type="file"
-            accept="image/*"
-            className="w-full p-2 mb-4 bg-transparent border-b border-gray-600 text-white file-input-transparent"
-            onChange={(e) => {
-              const file = e.target.files[0];
-              if (file) {
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                  setNewUserImg(reader.result); // Set the image data URL
-                };
-                reader.readAsDataURL(file);
-              }
-            }}
-          />
-          <div className="flex justify-end gap-4">
+          </div>
+          <div className="flex justify-end gap-4 mt-4">
             <button
-              className="bg-gray-600 px-2 py-1 text-white text-lg rounded"
+              className="bg-transparent px-2 py-1 bg-red-600 text-white text-lg rounded"
               onClick={closeModal}
             >
               Close
@@ -129,7 +138,7 @@ export default function UserList({ onSelectUser }) {
               className="bg-transparent px-2 py-1 text-white text-lg rounded"
               onClick={handleAddUser}
             >
-              Add
+              Submit
             </button>
           </div>
         </Modal>
